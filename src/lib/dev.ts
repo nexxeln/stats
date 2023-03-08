@@ -6,7 +6,7 @@ const DevArticle = t.type({
   page_views_count: t.number,
 });
 
-export type DevArticle = t.TypeOf<typeof DevArticle>;
+type DevArticle = t.TypeOf<typeof DevArticle>;
 
 async function getArticles(
   page = 1,

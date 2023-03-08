@@ -7,14 +7,10 @@ const GithubUser = t.type({
   public_repos: t.number,
 });
 
-export type GithubUser = t.TypeOf<typeof GithubUser>;
-
 const GithubRepo = t.type({
   stargazers_count: t.number,
   fork: t.boolean,
 });
-
-export type GithubRepo = t.TypeOf<typeof GithubRepo>;
 
 export async function getGithubUser(username: string) {
   const user = await fetch(`https://api.github.com/users/${username}`)
