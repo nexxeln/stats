@@ -3,10 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   '@unocss/reset': ^0.50.4
   astro: ^2.0.18
+  fp-ts: ^2.13.1
+  io-ts: ^2.2.20
   unocss: ^0.50.4
 
 dependencies:
   astro: 2.1.0
+  fp-ts: 2.13.1
+  io-ts: 2.2.20_fp-ts@2.13.1
 
 devDependencies:
   '@unocss/reset': 0.50.4
@@ -1526,6 +1530,10 @@ packages:
       pkg-dir: 4.2.0
     dev: false
 
+  /fp-ts/2.13.1:
+    resolution: {integrity: sha512-0eu5ULPS2c/jsa1lGFneEFFEdTbembJv8e4QKXeVJ3lm/5hyve06dlKZrpxmMwJt6rYen7sxmHHK2CLaXvWuWQ==}
+    dev: false
+
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -1728,6 +1736,14 @@ packages:
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+    dev: false
+
+  /io-ts/2.2.20_fp-ts@2.13.1:
+    resolution: {integrity: sha512-Rq2BsYmtwS5vVttie4rqrOCIfHCS9TgpRLFpKQCM1wZBBRY9nWVGmEvm2FnDbSE2un1UE39DvFpTR5UL47YDcA==}
+    peerDependencies:
+      fp-ts: ^2.5.0
+    dependencies:
+      fp-ts: 2.13.1
     dev: false
 
   /is-binary-path/2.1.0:
