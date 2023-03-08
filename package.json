@@ -10,11 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.18",
+    "@astrojs/vercel": "^3.2.0",
+    "astro": "^2.1.0",
     "fp-ts": "^2.13.1",
     "io-ts": "^2.2.20"
   },
   "devDependencies": {
+    "@types/node": "^18.14.6",
     "@unocss/reset": "^0.50.4",
     "unocss": "^0.50.4"
   }

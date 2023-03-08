@@ -1,4 +1,10 @@
 import { defineConfig } from 'astro/config';
 import unocss from "unocss/astro";
+import vercel from "@astrojs/vercel/serverless";
 
-export default defineConfig({ integrations: [unocss()] });
+// https://astro.build/config
+export default defineConfig({
+  integrations: [unocss()],
+  output: "server",
+  adapter: vercel()
+});
