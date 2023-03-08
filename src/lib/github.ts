@@ -1,4 +1,4 @@
-import { either, taskEither } from "fp-ts";
+import { either } from "fp-ts";
 import { pipe } from "fp-ts/lib/function";
 import * as t from "io-ts";
 
