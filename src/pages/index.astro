@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getGithubUser, getTotalStars } from "../lib/github";
 
+const { followers, public_repos } = await getGithubUser("nexxeln");
+const stars = await getTotalStars("nexxeln");
 const title = "nexxel • dashboard";
 ---
 
@@ -9,5 +12,9 @@ const title = "nexxel • dashboard";
     <h1 class="font-extrabold text-(2xl center) md:text-4xl pt-6">
       {title}
     </h1>
+
+    <p>stars: {stars}</p>
+    <p>followers: {followers}</p>
+    <p>repos: {public_repos}</p>
   </main>
 </Layout>
