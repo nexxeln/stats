@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { getTotalBlogViews } from "../lib/dev";
 import { getGithubUser, getTotalStars } from "../lib/github";
 
-const title = "nexxel • dashboard";
+const title = "nexxel • stats";
 const { followers, public_repos } = await getGithubUser("nexxeln");
 const stars = await getTotalStars("nexxeln");
 const views = await getTotalBlogViews();
