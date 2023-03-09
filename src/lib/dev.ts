@@ -76,3 +76,18 @@ export async function getTotalIssues(username: string) {
     either.getOrElse(() => 0)
   );
 }
+
+export async function getTotalCommits(username: string) {
+  const commits = await fetch(
+    `https://api.github.com/search/commits?q=author:${username}`
+  )
+    .then((res) => res.json())
+    .then((json) => GithubSearch.decode(json));
+
+  return pipe(
+    commits,
+    either.map((commits) => commits.total_count),
+    either.mapLeft((err) => console.error(err)),
+    either.getOrElse(() => 0)
+  );
+}

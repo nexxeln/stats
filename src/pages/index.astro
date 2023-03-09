@@ -1,7 +1,12 @@
 ---
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-import { getTotalBlogViews, getTotalIssues, getTotalPrs } from "../lib/dev";
+import {
+  getTotalBlogViews,
+  getTotalCommits,
+  getTotalIssues,
+  getTotalPrs,
+} from "../lib/dev";
 import { getGithubUser, getTotalStars } from "../lib/github";
 
 const title = "nexxel • stats";
@@ -10,6 +15,7 @@ const stars = await getTotalStars("nexxeln");
 const views = await getTotalBlogViews();
 const prs = await getTotalPrs("nexxeln");
 const issues = await getTotalIssues("nexxeln");
+const commits = await getTotalCommits("nexxeln");
 
 const cards = [
   {
@@ -35,6 +41,10 @@ const cards = [
   {
     name: "GitHub Issues",
     value: issues,
+  },
+  {
+    name: "GitHub Commits",
+    value: commits,
   },
 ];
 ---
