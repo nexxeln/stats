@@ -1,13 +1,14 @@
 ---
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-import { getTotalBlogViews } from "../lib/dev";
+import { getTotalBlogViews, getTotalPrs } from "../lib/dev";
 import { getGithubUser, getTotalStars } from "../lib/github";
 
 const title = "nexxel • stats";
 const { followers, public_repos } = await getGithubUser("nexxeln");
 const stars = await getTotalStars("nexxeln");
 const views = await getTotalBlogViews();
+const prs = await getTotalPrs("nexxeln");
 
 const cards = [
   {
@@ -25,6 +26,10 @@ const cards = [
   {
     name: "Blog Views",
     value: views,
+  },
+  {
+    name: "GitHub PRs",
+    value: prs,
   },
 ];
 ---
