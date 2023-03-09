@@ -43,7 +43,7 @@ export async function getTotalBlogViews() {
   );
 }
 
-const GithubPrSearch = t.type({
+const GithubSearch = t.type({
   total_count: t.number,
 });
 
@@ -52,11 +52,26 @@ export async function getTotalPrs(username: string) {
     `https://api.github.com/search/issues?q=author:${username}+is:pr`
   )
     .then((res) => res.json())
-    .then((json) => GithubPrSearch.decode(json));
+    .then((json) => GithubSearch.decode(json));
 
   return pipe(
     prs,
     either.map((prs) => prs.total_count),
+    either.mapLeft((err) => console.error(err)),
+    either.getOrElse(() => 0)
+  );
+}
+
+export async function getTotalIssues(username: string) {
+  const issues = await fetch(
+    `https://api.github.com/search/issues?q=author:${username}+is:issue`
+  )
+    .then((res) => res.json())
+    .then((json) => GithubSearch.decode(json));
+
+  return pipe(
+    issues,
+    either.map((issues) => issues.total_count),
     either.mapLeft((err) => console.error(err)),
     either.getOrElse(() => 0)
   );
