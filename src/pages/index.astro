@@ -1,13 +1,14 @@
 ---
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-import {
-  getTotalBlogViews,
-  getTotalCommits,
-  getTotalIssues,
+import { getTotalBlogViews, } from "../lib/dev";
+import { 
+  getGithubUser,
+  getTotalStars,
   getTotalPrs,
-} from "../lib/dev";
-import { getGithubUser, getTotalStars } from "../lib/github";
+  getTotalIssues,
+  getTotalCommits
+} from "../lib/github";
 
 const title = "nexxel • stats";
 const { followers, public_repos } = await getGithubUser("nexxeln");
