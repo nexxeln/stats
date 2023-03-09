@@ -1,4 +1,5 @@
 ---
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getTotalBlogViews } from "../lib/dev";
 import { getGithubUser, getTotalStars } from "../lib/github";
@@ -7,6 +8,25 @@ const title = "nexxel • stats";
 const { followers, public_repos } = await getGithubUser("nexxeln");
 const stars = await getTotalStars("nexxeln");
 const views = await getTotalBlogViews();
+
+const cards = [
+  {
+    name: "GitHub Stars",
+    value: stars,
+  },
+  {
+    name: "GitHub Followers",
+    value: followers,
+  },
+  {
+    name: "GitHub Repos",
+    value: public_repos,
+  },
+  {
+    name: "Blog Views",
+    value: views,
+  },
+];
 ---
 
 <Layout title={title}>
@@ -15,9 +35,12 @@ const views = await getTotalBlogViews();
       {title}
     </h1>
 
-    <p>stars: {stars}</p>
-    <p>followers: {followers}</p>
-    <p>repos: {public_repos}</p>
-    <p>views: {views}</p>
+    <div class="pb-10"></div>
+
+    <section
+      class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
+    >
+      {cards.map(({ name, value }) => <Card name={name} value={value} />)}
+    </section>
   </main>
 </Layout>
